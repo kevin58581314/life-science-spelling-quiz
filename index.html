@@ -5,319 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Life Science Spelling Quiz</title>
 <style>
-:root{--bg:#0f172a;--panel:#111827;--soft:#1f2937;--text:#f8fafc;--muted:#cbd5e1;--muted2:#94a3b8;--border:rgba(148,163,184,.25);--primary:#60a5fa;--blue:#2563eb;--green:#22c55e;--red:#ef4444;--greenbg:rgba(34,197,94,.12);--redbg:rgba(239,68,68,.12);--shadow:0 24px 80px rgba(0,0,0,.42)}*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left,rgba(96,165,250,.16),transparent 34%),radial-gradient(circle at bottom right,rgba(34,197,94,.1),transparent 36%),var(--bg);color:var(--text)}body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}button,input,select{font:inherit}.app{width:min(820px,100%);background:rgba(17,24,39,.9);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}.top{padding:28px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,rgba(96,165,250,.16),rgba(17,24,39,.2))}.eyebrow{margin:0 0 8px;color:var(--primary);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.95rem}h1,h2{margin:0;line-height:1.1}h1{font-size:clamp(2rem,6vw,3.2rem);letter-spacing:-.04em}h2{font-size:clamp(1.5rem,4vw,2.25rem);letter-spacing:-.03em}.subtitle{margin:14px 0 0;color:var(--muted);font-size:1.08rem;line-height:1.55}.content{padding:28px}.screen{display:none}.screen.active{display:block;animation:fade .18s ease-out}@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.form-row{display:grid;gap:10px;margin-bottom:22px}label{color:var(--muted);font-weight:800}select,input[type=text]{width:100%;border:1px solid var(--border);border-radius:16px;background:var(--soft);color:var(--text);padding:16px 18px;font-size:1.18rem;outline:none}select:focus,input[type=text]:focus{border-color:rgba(96,165,250,.85);box-shadow:0 0 0 4px rgba(96,165,250,.18)}input:disabled{opacity:.7;cursor:not-allowed}.button-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}button{border:0;border-radius:16px;padding:15px 20px;min-height:54px;color:white;background:var(--blue);font-size:1.05rem;font-weight:900;cursor:pointer}button:hover:not(:disabled){filter:brightness(1.08);transform:translateY(-1px)}button:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#334155}.success{background:#16a34a}.quiz-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:22px}.pill{flex:0 0 auto;border:1px solid var(--border);border-radius:999px;padding:10px 14px;color:var(--muted);background:rgba(31,41,55,.72);font-weight:900;white-space:nowrap}.card,.detail{border:1px solid var(--border);border-radius:22px;padding:20px;background:rgba(31,41,55,.5);margin-bottom:22px}.pre{border-color:rgba(96,165,250,.32);background:rgba(96,165,250,.1)}.hint{margin:0;color:var(--muted2);font-size:1rem;line-height:1.5}.feedback{display:none;margin-top:22px;border:1px solid var(--border);border-radius:22px;padding:20px;background:rgba(15,23,42,.55)}.feedback.visible{display:block}.feedback.correct{border-color:rgba(34,197,94,.45);background:var(--greenbg)}.feedback.wrong{border-color:rgba(239,68,68,.45);background:var(--redbg)}.feedback-title{margin:0 0 14px;font-size:1.35rem;font-weight:950}.correct .feedback-title{color:var(--green)}.wrong .feedback-title{color:var(--red)}.chip{display:inline-flex;margin:2px 0 16px;border-radius:999px;padding:8px 14px;background:rgba(96,165,250,.14);color:#bfdbfe;font-size:1.12rem;font-weight:950}.grid{display:grid;gap:12px}.item{border:1px solid rgba(148,163,184,.18);border-radius:16px;padding:14px;background:rgba(17,24,39,.45)}.label{display:block;margin-bottom:6px;color:var(--muted2);font-size:.86rem;font-weight:950;letter-spacing:.06em;text-transform:uppercase}.pre .label{color:#bfdbfe}.text,.defs{margin:0;color:var(--text);font-size:1.05rem;line-height:1.55}.defs{padding-left:24px}.score{border:1px solid var(--border);border-radius:22px;padding:20px;background:rgba(31,41,55,.54);margin:24px 0 22px}.score-num{margin:0;font-size:clamp(2rem,6vw,3.5rem);font-weight:950;letter-spacing:-.05em}.score-note{margin:8px 0 0;color:var(--muted);font-size:1.08rem}.table-wrap{width:100%;overflow-x:auto;border:1px solid var(--border);border-radius:18px;margin-bottom:22px}table{width:100%;border-collapse:collapse;min-width:650px;background:rgba(15,23,42,.45)}th,td{padding:14px 16px;text-align:left;border-bottom:1px solid rgba(148,163,184,.18);font-size:1rem}th{color:var(--muted);background:rgba(31,41,55,.9);font-size:.88rem;letter-spacing:.06em;text-transform:uppercase}tr:last-child td{border-bottom:0}.wrong-answer{color:#fecaca;text-decoration:line-through;text-decoration-thickness:2px}.badge{display:inline-flex;border-radius:999px;padding:5px 10px;background:rgba(96,165,250,.14);color:#bfdbfe;font-weight:900;font-size:.9rem}.result{font-size:1.35rem}@media(max-width:640px){body{padding:14px;align-items:flex-start}.top,.content{padding:22px}.quiz-head{display:grid}.pill{justify-self:start}button{width:100%}}
-</style>
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0f172a;color:#f8fafc;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:24px}main{max-width:720px;border:1px solid rgba(148,163,184,.25);border-radius:24px;background:#111827;padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.42)}h1{margin:0 0 12px;font-size:clamp(1.8rem,5vw,3rem)}p{color:#cbd5e1;line-height:1.6}.err{color:#fecaca;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35);border-radius:16px;padding:16px;white-space:pre-wrap}</style>
 </head>
 <body>
-<main class="app" aria-live="polite">
-<header class="top"><p class="eyebrow">Life Science Spelling Practice</p><h1>English Spelling Quiz</h1><p class="subtitle">Listen carefully, read the English meaning, type the word, and review the answer.</p></header>
-<section class="content">
-<section id="startScreen" class="screen active"><h2>Choose a Week</h2><p class="subtitle">Each week includes Core Words and Challenge Words in a mixed random order.</p><div class="form-row" style="margin-top:24px"><label for="weekSelect">Week</label><select id="weekSelect"></select></div><div class="button-row"><button id="startBtn" type="button">Start Quiz</button></div></section>
-<section id="quizScreen" class="screen"><div class="quiz-head"><div><h2 id="quizTitle">Week</h2><p class="subtitle" id="quizInstruction">Listen and spell the word.</p></div><div class="pill" id="progressText">Word: 1 / 30</div></div><div class="card"><p class="hint">Press the button if you want to hear the word again.</p><div class="button-row"><button id="listenBtn" type="button" class="secondary">Listen Again</button></div></div><div class="detail pre"><span class="label">English Meaning</span><ol id="preAnswerDefs" class="defs"></ol></div><form id="answerForm" autocomplete="off"><div class="form-row"><label for="answerInput">Your Spelling</label><input id="answerInput" type="text" inputmode="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Type the word here"></div><div class="button-row"><button id="submitBtn" type="submit">Submit</button><button id="nextBtn" type="button" class="success" style="display:none">Next Word</button></div></form><div id="feedbackBox" class="feedback"><p id="feedbackTitle" class="feedback-title"></p><span id="correctWord" class="chip"></span><div class="grid"><div class="item"><span class="label">English Meanings</span><ol id="enDefs" class="defs"></ol></div><div class="item"><span class="label">English Example</span><p id="enEx" class="text"></p></div><div class="item"><span class="label">Chinese Meaning</span><p id="zhDef" class="text"></p></div></div></div></section>
-<section id="summaryScreen" class="screen"><h2>Quiz Summary</h2><p class="subtitle">Review your answers below.</p><div class="score"><p class="score-num" id="scoreText">Score: 0 / 0 (0%)</p><p class="score-note" id="scoreNote">Great practice!</p></div><div class="table-wrap"><table><thead><tr><th>The Word</th><th>Category</th><th>Your Answer</th><th>Result</th></tr></thead><tbody id="summaryTableBody"></tbody></table></div><div class="button-row"><button id="homeBtn" type="button" class="secondary">Back to Home</button></div></section>
-</section></main>
+<main id="loader"><h1>Loading quiz...</h1><p>Please wait a moment.</p></main>
 <script>
-const weekMeta={week1:"Introduction to Life Science & Scientific Practices",week2:"What Are Living Things",week3:"Classification of Organisms",week4:"Animal Structures and Functions",week5:"Animal Life Cycles",week6:"Animal Adaptations",week7:"Plant Structures and Functions",week8:"Plant Life Cycles",week9:"Plant Adaptations",week10:"Ecosystems and Habitats",week11:"Food Chains and Webs",week12:"Review"};
-const weeklyWordGroups={
-week1:{Core:["observe","question","predict","experiment","investigate","record","measure","compare","describe","sort","test","data","results","evidence","tools","scientist","notebook","model","safety","plan"],Challenge:["quantitative","qualitative","systematic","experimental","investigation","interpretation","replication","correlation","evaluation","methodology"]},
-week2:{Core:["living","nonliving","grow","move","breathe","need","water","food","energy","reproduce","change","alive","dead","environment","respond","space","air","sunlight","basic","life"],Challenge:["multicellular","unicellular","homeostasis","metabolism","respiration","sensitivity","microscopic","cellular","organismal","biological"]},
-week3:{Core:["group","sort","classify","same","different","animal","plant","insect","fish","bird","mammal","reptile","amphibian","features","type","category","list","chart","label","compare"],Challenge:["taxonomy","binomial","phylogeny","arthropod","echinoderm","annelid","mollusk","dichotomous","vertebrate","invertebrate"]},
-week4:{Core:["body","parts","head","legs","wings","tail","eyes","ears","mouth","teeth","skin","fur","feathers","fins","claws","move","eat","see","hear","protect"],Challenge:["circulatory","respiratory","exoskeleton","endoskeleton","locomotion","appendages","coordination","digestion","vertebral","muscular"]},
-week5:{Core:["life cycle","baby","grow","change","egg","hatch","young","adult","stages","born","develop","parent","same","different","time","start","end","cycle","animal","live"],Challenge:["metamorphosis","embryonic","juvenile","maturation","reproductive","developmental","transitional","fertilization","offspring","transformation"]},
-week6:{Core:["adapt","change","survive","habitat","food","water","shelter","color","shape","size","fast","slow","strong","weak","hide","protect","hunt","escape","live","environment"],Challenge:["camouflage","hibernation","migration","nocturnal","behavioral","physiological","specialization","evolutionary","predatory","symbiosis"]},
-week7:{Core:["plant","root","stem","leaf","flower","seed","grow","water","sunlight","soil","food","green","parts","hold","drink","make","carry","support","needs","air"],Challenge:["photosynthesis","chlorophyll","vascular","xylem","phloem","transpiration","nutrients","pollination","reproduction","germination"]},
-week8:{Core:["seed","plant","grow","sprout","root","stem","leaf","flower","fruit","life cycle","start","change","young","adult","water","sunlight","soil","time","new","plant"],Challenge:["fertilization","dispersal","dormancy","seedling","reproductive","propagation","pollinator","flowering","cultivation","germination"]},
-week9:{Core:["adapt","survive","water","sun","dry","wet","hot","cold","roots","leaves","thick","thin","sharp","soft","protect","store","grow","change","desert","forest"],Challenge:["succulent","photosynthetic","deciduous","evergreen","conservation","specialized","waterproof","environmental","temperature-resistant","moisture-retention"]},
-week10:{Core:["ecosystem","habitat","home","animals","plants","water","land","air","forest","ocean","desert","pond","living","nonliving","space","food","shelter","together","place","environment"],Challenge:["biodiversity","interdependence","microhabitat","population","community","ecological","environmental","sustainability","resources","interaction"]},
-week11:{Core:["food chain","food web","eat","energy","plant","animal","sun","producer","consumer","predator","prey","herbivore","carnivore","omnivore","flow","start","next","end","link","system"],Challenge:["decomposer","photosynthetic","trophic","scavenger","consumption","nutritional","interconnected","competition","ecosystem","energy-transfer"]},
-week12:{Core:["observe","living","classify","structure","function","life cycle","adapt","plant","animal","habitat","ecosystem","food chain","grow","change","survive","energy","environment","seed","root","leaf"],Challenge:["photosynthesis","metamorphosis","classification","biodiversity","adaptation","interdependence","physiological","germination","transpiration","evolutionary"]}
-};
-const wordBankRaw=`observe|To look carefully and notice details.|To watch something for a period of time.|Scientists observe plants as they grow.|觀察
-question|Something you ask because you want to know more.|To ask about something because you are not sure.|A good question can start an experiment.|問題；詢問
-predict|To say what you think will happen next.|To make a careful guess based on evidence.|I predict the seed will sprout this week.|預測
-experiment|A test used to learn or prove something.|To try a method and see what happens.|We did an experiment with water and seeds.|實驗
-investigate|To study something carefully to find answers.|To look into a problem or question.|We investigate why some plants grow faster.|調查；研究
-record|To write down information so you can use it later.|A written or saved piece of information.|Scientists record their observations in a notebook.|記錄；紀錄資料
-measure|To find the size, length, amount, or weight of something.|A standard amount used for comparison.|Measure the leaf with a ruler.|測量；量度
-compare|To look at things and find how they are alike or different.|To judge two things side by side.|Compare the two insects carefully.|比較
-describe|To tell what something is like.|To give details about something in words.|Describe the color and shape of the flower.|描述
-sort|To put things into groups.|A kind or type of thing.|Sort the animals by their body coverings.|分類；種類
-test|To try something to learn if it works or is true.|A set of questions or tasks used to check learning.|We test which soil helps seeds grow best.|測試；考試
-data|Facts or numbers collected during an investigation.|Information used to answer a question.|Our data shows the plant grew two centimeters.|資料；數據
-results|What you find out after a test or experiment.|The final scores or outcomes of something.|The results showed that sunlight helped the plant.|結果
-evidence|Information that helps show something is true.|Clues that support an idea or explanation.|The tracks are evidence that an animal was here.|證據
-tools|Objects used to do a job.|Instruments used for measuring or observing.|A ruler and hand lens are science tools.|工具
-scientist|A person who studies the natural world.|A person who uses evidence to answer questions.|A scientist asks questions and collects evidence.|科學家
-notebook|A book used for writing notes or records.|A place to keep observations and data.|Write your observations in the notebook.|筆記本
-model|A simple copy or picture used to explain something.|A person or thing used as an example.|We made a model of a plant cell.|模型；範例
-safety|Being protected from danger or harm.|Careful actions that prevent accidents.|Wear goggles for safety during the experiment.|安全
-plan|A set of steps for doing something.|To decide what to do before starting.|Make a plan before you start the investigation.|計畫；規劃
-quantitative|Using numbers or measurements.|Related to amounts that can be counted or measured.|Plant height is quantitative data.|定量的
-qualitative|Using descriptions instead of numbers.|Related to qualities such as color, shape, or texture.|Leaf color is qualitative data.|定性的
-systematic|Done in an organized step-by-step way.|Following a clear method or system.|A systematic method helps scientists avoid mistakes.|有系統的
-experimental|Related to a scientific test.|Used to check an idea before it is accepted.|The experimental group got more sunlight.|實驗的
-investigation|A careful search for answers.|A scientific study of a question or problem.|The investigation helped us understand the habitat.|調查；研究
-interpretation|An explanation of what information means.|A way of understanding data or evidence.|Her interpretation of the data was clear.|解釋；詮釋
-replication|Repeating a test to see if the same result happens.|A copy or repeat of a scientific process.|Replication makes science more reliable.|重複驗證
-correlation|A relationship between two things that change together.|A pattern that shows two things may be connected.|There is a correlation between sunlight and plant growth.|相關性
-evaluation|A careful judgment about quality or meaning.|The process of checking how well something works.|The evaluation helped us choose the best model.|評估
-methodology|The system of methods used in a study.|The planned way an investigation is done.|The methodology explains how the experiment was done.|方法學；研究方法
-living|Alive and having the needs of life.|Related to organisms that grow and use energy.|A living thing needs water and energy.|有生命的
-nonliving|Not alive and not needing food or water.|Related to things that do not grow or reproduce.|A rock is a nonliving thing.|無生命的
-grow|To become bigger or develop.|To increase over time.|Plants grow when they get water and sunlight.|生長；增加
-move|To change place or position.|To make something change position.|Many animals move to find food.|移動
-breathe|To take air into and out of the body.|To use gases needed for life.|Most animals breathe air.|呼吸
-need|Something required to live or work.|To require something.|Water is a basic need for living things.|需要；需求
-water|A clear liquid that living things need.|To give water to a plant or animal.|Seeds need water to sprout.|水；澆水
-food|Something living things eat to get energy.|Material that gives nutrients to an organism.|Animals need food to live.|食物
-energy|The power living things use to grow and move.|The ability to do work or cause change.|Food gives animals energy.|能量
-reproduce|To make more living things of the same kind.|To produce offspring.|Plants reproduce by making seeds.|繁殖
-change|To become different.|A difference that happens over time.|A tadpole can change into a frog.|改變；變化
-alive|Living and not dead.|Active with the signs of life.|The fish is alive and swimming.|活著的
-dead|No longer living.|Not active or not working.|A dead leaf fell from the tree.|死的；死亡的
-environment|The surroundings where living things live.|All the conditions around an organism.|A pond is an environment for frogs.|環境
-respond|To react to something.|To answer or act after a change happens.|Plants respond to light by growing toward it.|反應；回應
-space|Room or area to live and grow.|An empty area around something.|A plant needs space for its roots.|空間
-air|The mixture of gases around Earth that many living things breathe.|The invisible gas mixture in the atmosphere.|Animals need air to breathe.|空氣
-sunlight|Light from the sun.|Natural light that plants can use for energy.|Plants use sunlight to make food.|陽光
-basic|Simple and most important.|Needed as a foundation.|Water is a basic need for life.|基本的
-life|The condition of being alive.|The time between birth and death.|Life exists in many different environments.|生命
-multicellular|Made of many cells.|Having more than one cell.|A dog is a multicellular organism.|多細胞的
-unicellular|Made of only one cell.|Having a single cell.|Some tiny organisms are unicellular.|單細胞的
-homeostasis|The ability of a living thing to keep body conditions stable.||Sweating helps humans with homeostasis.|恆定性；體內平衡
-metabolism|The chemical processes that keep a living thing alive.||Metabolism helps cells use energy.|新陳代謝
-respiration|The process cells use to release energy from food.|Breathing in everyday use.|Respiration gives cells energy.|呼吸作用；呼吸
-sensitivity|The ability to notice and respond to changes.|The condition of being easily affected by something.|Sensitivity helps animals react to danger.|感應性；敏感性
-microscopic|Too small to see without a microscope.|Related to things seen with a microscope.|Bacteria are microscopic organisms.|微小的；顯微鏡下的
-cellular|Related to cells.|Made of or involving cells.|Cellular structures are found inside living things.|細胞的
-organismal|Related to a whole living thing.||Organismal traits help a living thing survive.|個體生物的
-biological|Related to living things.|Related to life processes.|Growth is a biological process.|生物的
-group|A set of things put together.|To put things together by a shared feature.|Put each animal into the correct group.|群組；分組
-classify|To put things into groups by their features.|To identify something as part of a group.|We classify animals by body traits.|分類
-same|Not different; alike.|One exact thing or kind.|These two leaves have the same shape.|相同的
-different|Not the same.|Having another kind, form, or quality.|Birds and fish have different body parts.|不同的
-animal|A living thing that usually moves and eats food.|A member of the animal kingdom.|A rabbit is an animal.|動物
-plant|A living thing that usually makes its own food from sunlight.|To put a seed or young plant into soil.|A plant needs water, sunlight, and air.|植物；種植
-insect|A small animal with six legs and three body parts.|An arthropod such as an ant, bee, or butterfly.|An ant is an insect.|昆蟲
-fish|An animal that lives in water and has fins.|To catch fish.|A fish swims with its fins.|魚；釣魚
-bird|An animal with feathers and wings.|A warm-blooded vertebrate that often lays eggs.|A bird can lay eggs.|鳥
-mammal|An animal that has hair or fur and feeds milk to its young.||A dog is a mammal.|哺乳動物
-reptile|A cold-blooded animal with dry scales.||A lizard is a reptile.|爬行動物
-amphibian|An animal that can live both in water and on land during its life.||A frog is an amphibian.|兩棲動物
-features|Important parts or qualities of something.|Noticeable traits that help describe something.|Feathers are features of many birds.|特徵
-type|A kind or group of something.|To write using a keyboard.|A frog is a type of amphibian.|類型；打字
-category|A group used for sorting things.|A class of things with shared traits.|Mammal is one animal category.|類別
-list|A set of words or items written in order.|To write items one after another.|Make a list of living things.|清單；列出
-chart|A picture or table that organizes information.|To show information in a visual way.|The chart shows animal groups.|圖表
-label|A word or name put on something to identify it.|To mark something with a name.|Label the parts of the flower.|標籤；標示
-taxonomy|The science of naming and classifying living things.||Taxonomy helps scientists organize organisms.|分類學
-binomial|Using two names, often genus and species.|Having two parts or terms.|A binomial name has two parts.|二名法的；二項式的
-phylogeny|The study of how living things are related through evolution.||Phylogeny shows relationships among animals.|親緣演化關係
-arthropod|An animal with jointed legs and an outer skeleton.||A crab is an arthropod.|節肢動物
-echinoderm|A sea animal such as a sea star or sea urchin.||A sea star is an echinoderm.|棘皮動物
-annelid|A segmented worm.||An earthworm is an annelid.|環節動物
-mollusk|A soft-bodied animal, often with a shell.||A snail is a mollusk.|軟體動物
-dichotomous|Divided into two choices at each step.||A dichotomous key helps identify organisms.|二分的
-vertebrate|An animal with a backbone.||A bird is a vertebrate.|脊椎動物
-invertebrate|An animal without a backbone.||A worm is an invertebrate.|無脊椎動物
-body|The whole physical form of a living thing.|The main part of a plant, animal, or object.|The bird's body is covered with feathers.|身體；主體
-parts|Pieces or sections of something.|The body structures that do different jobs.|Plants have many parts, such as roots and leaves.|部分；部位
-head|The body part with the brain, eyes, ears, nose, or mouth.|The top or front part of something.|The insect has antennae on its head.|頭；前端
-legs|Body parts used for standing, walking, or jumping.||A frog has strong legs for jumping.|腿
-wings|Body parts used by many birds and insects to fly.||Butterflies have colorful wings.|翅膀
-tail|The back part of an animal's body.|The end part of something.|A fish uses its tail to swim.|尾巴；末端
-eyes|Body parts used for seeing.||Owls have large eyes.|眼睛
-ears|Body parts used for hearing.||A rabbit has long ears.|耳朵
-mouth|The opening used for eating or speaking.|The opening of a cave, river, or container.|The bird uses its mouth to eat seeds.|嘴巴；開口
-teeth|Hard parts in the mouth used for biting or chewing.||Sharp teeth help some animals eat meat.|牙齒
-skin|The outer covering of the body.|The outer layer of something.|Skin helps protect the body.|皮膚；外層
-fur|Thick hair covering some animals.||A bear has warm fur.|毛皮
-feathers|Light body coverings found on birds.||Feathers help birds fly and stay warm.|羽毛
-fins|Flat body parts that help fish swim.||Fish use fins to move in water.|鰭
-claws|Sharp curved nails on an animal's feet.||A cat uses claws to climb.|爪子
-eat|To take food into the body.|To consume food for energy.|Animals eat food to get energy.|吃
-see|To use the eyes to notice things.|To understand something.|Animals see danger with their eyes.|看見；理解
-hear|To notice sounds with the ears.|To listen to or be told something.|Deer can hear soft sounds.|聽見
-protect|To keep safe from harm.|To defend something from danger.|A turtle shell helps protect its body.|保護
-circulatory|Related to the movement of blood through the body.||The circulatory system carries blood.|循環的
-respiratory|Related to breathing.||The respiratory system helps animals breathe.|呼吸的
-exoskeleton|A hard outer covering that supports and protects some animals.||A crab has an exoskeleton.|外骨骼
-endoskeleton|A skeleton inside the body.||Humans have an endoskeleton.|內骨骼
-locomotion|Movement from one place to another.||Wings help birds with locomotion.|移動；運動
-appendages|Body parts that stick out from the main body.||An insect has jointed appendages.|附肢
-coordination|The working together of body parts.|The organized arrangement of actions.|Good coordination helps animals run and jump.|協調
-digestion|The process of breaking down food in the body.||Digestion turns food into nutrients.|消化
-vertebral|Related to the backbone or vertebrae.||The vertebral column supports the body.|脊椎的
-muscular|Related to muscles.|Strong or having well-developed muscles.|Muscular legs help frogs jump far.|肌肉的；強壯的
-life cycle|The stages a living thing goes through during life.||A butterfly has a life cycle with four stages.|生命週期
-baby|A very young animal or person.|Something small or newly formed.|A baby bird needs food from its parent.|幼小動物；嬰兒
-egg|A round object from which some young animals hatch.|A reproductive cell or structure in some organisms.|A chick grows inside an egg.|蛋；卵
-hatch|To come out of an egg.|To plan or create an idea.|The turtle will hatch from the egg.|孵化；策劃
-young|Not fully grown.|Young living things or offspring.|A young frog is smaller than an adult frog.|年幼的；幼體
-adult|Fully grown.|A grown person or animal.|An adult butterfly can lay eggs.|成年的；成體
-stages|Steps or parts in a process.|Periods in development or change.|The frog life cycle has several stages.|階段
-born|Brought into life.|Starting or created in a certain way.|Some animals are born alive, not from eggs.|出生
-develop|To grow and become more complete.|To create or improve over time.|A seed can develop into a plant.|發展；發育
-parent|A mother or father animal or person.|An organism that produces offspring.|The parent bird feeds its young.|親代；父母
-time|The passing of minutes, days, or years.|A point or period when something happens.|A seed needs time to grow.|時間
-start|The beginning of something.|To begin doing something.|A plant life cycle can start with a seed.|開始
-end|The final part of something.|To stop or finish.|The end of one cycle can begin a new cycle.|結束
-cycle|A process that repeats in the same order.|A series of events that happens again and again.|The water cycle repeats again and again.|循環；週期
-live|To be alive.|To have a home in a place.|Frogs live near ponds.|生活；居住
-metamorphosis|A major body change during an animal's life cycle.||A caterpillar changes by metamorphosis.|變態；變態發育
-embryonic|Related to an early stage of development before birth or hatching.||Embryonic growth happens inside the egg.|胚胎的
-juvenile|Young but not yet adult.|Related to a young stage of development.|A juvenile animal is still growing.|幼年的
-maturation|The process of becoming fully grown or developed.||Maturation turns a young animal into an adult.|成熟過程
-reproductive|Related to making offspring.||Adult animals have reproductive structures.|繁殖的
-developmental|Related to growth and change over time.||A tadpole has developmental stages.|發育的
-transitional|Related to changing from one stage to another.||A chrysalis is a transitional stage.|過渡的
-fertilization|The joining of reproductive cells to start new life.||Fertilization can lead to a new organism.|受精
-offspring|The young of a plant or animal.|Children or descendants.|Kittens are the offspring of cats.|後代；子代
-transformation|A major change in form or appearance.|The process of becoming very different.|The transformation from tadpole to frog is amazing.|轉變；變形
-adapt|To change or have traits that help survival.|To adjust to a new condition.|Animals adapt to their habitats.|適應
-survive|To stay alive.|To continue after danger or difficulty.|Camouflage helps some animals survive.|生存
-habitat|The natural home of a plant or animal.|The place where an organism gets what it needs.|A forest is a habitat for many animals.|棲地
-shelter|A safe place to live or hide.|Protection from danger or weather.|A burrow can be shelter for a rabbit.|庇護所；遮蔽處
-color|The way something looks, such as red, green, or brown.|To add color to something.|An animal's color can help it hide.|顏色；著色
-shape|The form or outline of something.|To form or influence something.|A bird's beak shape can help it eat.|形狀；塑造
-size|How big or small something is.|A measurement of amount or dimensions.|The size of an animal can help it survive.|大小；尺寸
-fast|Moving quickly.|Not eating for a period of time.|A fast animal can escape danger.|快的；禁食
-slow|Not moving quickly.|To make something less fast.|A slow animal may hide to stay safe.|慢的；減慢
-strong|Having power or strength.|Not easily broken or damaged.|Strong legs help a kangaroo jump.|強壯的；堅固的
-weak|Not strong.|Not powerful or easily damaged.|A weak animal may need protection.|虛弱的；弱的
-hide|To stay where others cannot see you.|The skin of an animal.|A lizard can hide under a rock.|躲藏；獸皮
-hunt|To look for and catch food.|To search for something.|A tiger hunts other animals for food.|狩獵；搜尋
-escape|To get away from danger.|To avoid being caught.|A rabbit can escape by running fast.|逃脫
-camouflage|Colors or patterns that help something blend in.|To hide something by making it match its surroundings.|Camouflage helps insects hide on leaves.|偽裝；保護色
-hibernation|A deep rest some animals use in cold seasons.||Bears may slow down during hibernation.|冬眠
-migration|Movement from one place to another, often by season.||Bird migration happens when seasons change.|遷徙
-nocturnal|Active at night.||Owls are nocturnal animals.|夜行性的
-behavioral|Related to the way an animal acts.||Migration is a behavioral adaptation.|行為的
-physiological|Related to how the body works.||Sweating is a physiological response.|生理的
-specialization|A trait or job especially suited for one purpose.||A long beak can be a feeding specialization.|特化
-evolutionary|Related to changes in living things over many generations.||Evolutionary changes can create new adaptations.|演化的
-predatory|Related to hunting other animals.||A shark has predatory behavior.|掠食性的
-symbiosis|A close relationship between two different living things.||Bees and flowers can have symbiosis.|共生
-root|The plant part that takes in water and holds the plant in place.|The basic source or cause of something.|The root grows down into the soil.|根；根源
-stem|The plant part that supports leaves and carries water.|To come from or grow out of something.|The stem holds the flower up.|莖；源自
-leaf|A plant part that often makes food from sunlight.|A sheet of paper in a book.|A leaf uses sunlight to help make food.|葉子；書頁
-flower|The plant part that can make seeds.|To bloom or develop well.|A flower can attract bees.|花；開花
-seed|A small plant part that can grow into a new plant.|The beginning or source of something.|A seed can sprout in moist soil.|種子；起源
-soil|The top layer of earth where plants can grow.|To make something dirty.|Roots take water from the soil.|土壤；弄髒
-green|The color of many leaves.|Related to plants or the environment.|Leaves are green because of chlorophyll.|綠色的；環保的
-hold|To keep something in place.|To carry or contain something.|Roots hold the plant in the ground.|固定；握住
-drink|To take in liquid.|A liquid that can be swallowed.|Plants drink water through their roots.|喝；吸收水分
-make|To create or produce something.|To cause something to happen.|Plants make food using sunlight.|製造；使發生
-carry|To move something from one place to another.|To support or hold while moving.|Stems carry water to the leaves.|運送；攜帶
-support|To hold something up or help it stay strong.|To help or agree with someone or something.|A stem supports the plant.|支撐；支持
-needs|Things required for life or growth.|Requirements or necessities.|A plant's needs include water and sunlight.|需要的東西；需求
-photosynthesis|The process plants use to make food from light, water, and carbon dioxide.||Photosynthesis happens mostly in green leaves.|光合作用
-chlorophyll|The green material in plants that helps capture light.||Chlorophyll helps leaves use sunlight.|葉綠素
-vascular|Related to tubes that carry water, food, or blood.||Vascular tissue moves water through a plant.|維管的；血管的
-xylem|Plant tissue that carries water upward from roots.||Xylem moves water to the leaves.|木質部
-phloem|Plant tissue that carries food made in leaves.||Phloem carries sugar through the plant.|韌皮部
-transpiration|The loss of water vapor from plant leaves.||Transpiration releases water from leaves.|蒸散作用
-nutrients|Materials that living things need to grow and stay healthy.||Plants get nutrients from soil.|養分
-pollination|The movement of pollen that helps plants make seeds.||Bees help with pollination.|授粉
-reproduction|The process of making new living things.||Plant reproduction can happen with seeds.|繁殖
-germination|The process when a seed begins to grow.||Germination starts when a seed gets water.|發芽
-sprout|To begin to grow from a seed.|A young shoot from a seed or plant.|The bean seed will sprout soon.|發芽；幼芽
-fruit|The part of a plant that often holds seeds.|A sweet plant food such as an apple or orange.|An apple is a fruit with seeds inside.|果實；水果
-new|Recently made or beginning.|Not used or known before.|A new plant can grow from a seed.|新的
-dispersal|The spreading of seeds or organisms away from one place.||Wind can help seed dispersal.|散播
-dormancy|A resting state when growth slows or stops.||Some seeds stay in dormancy until conditions are right.|休眠
-seedling|A young plant that has just started growing.||The seedling has two small leaves.|幼苗
-propagation|The process of growing new plants.||Gardeners use propagation to make more plants.|繁殖；栽培繁殖
-pollinator|An animal that moves pollen from flower to flower.||A bee is an important pollinator.|傳粉者
-flowering|Producing flowers.|Related to plants that make flowers.|Flowering plants can make seeds.|開花的
-cultivation|The careful growing of plants.||Cultivation helps crops grow well.|栽培
-sun|The star that gives Earth light and heat.|Sunlight or sunshine.|The sun gives energy to plants.|太陽；陽光
-dry|Having little or no water.|To remove water from something.|Cactus plants can live in dry places.|乾燥的；弄乾
-wet|Covered with or full of water.|To make something wet.|Moss often grows in wet places.|潮濕的；弄濕
-hot|Having a high temperature.|Spicy in everyday use.|Deserts can be very hot during the day.|熱的；辣的
-cold|Having a low temperature.|An illness with a runny nose or cough.|Some plants can survive cold winters.|冷的；感冒
-roots|The underground parts of plants that take in water.|The sources or origins of something.|Deep roots help plants find water.|根部；根源
-leaves|The plant parts that often make food.|Goes away from a place.|Leaves can be thick or thin.|葉子；離開
-thick|Having a large distance between two sides.|Dense or crowded.|Thick leaves can store water.|厚的；濃密的
-thin|Having a small distance between two sides.|Not thick or dense.|Thin leaves may lose water quickly.|薄的；稀薄的
-sharp|Having a pointed edge or tip.|Clear, sudden, or strong.|Sharp thorns can protect a plant.|尖銳的；敏銳的
-soft|Not hard or rough.|Gentle or quiet.|Some leaves are soft to touch.|柔軟的；輕柔的
-store|To keep something for later use.|A place where things are sold.|A cactus can store water in its stem.|儲存；商店
-desert|A very dry habitat with little rain.|To leave a place or person behind.|A cactus can survive in a desert.|沙漠；拋棄
-forest|A habitat with many trees.|A large area covered by trees.|A forest provides shade and shelter.|森林
-succulent|A plant with thick parts that store water.|Juicy or full of moisture.|A cactus is a succulent plant.|多肉植物；多汁的
-photosynthetic|Able to make food using light.||Green leaves are photosynthetic.|能行光合作用的
-deciduous|Losing leaves during part of the year.||A deciduous tree may lose leaves in winter.|落葉性的
-evergreen|Keeping leaves throughout the year.|Always fresh or continuing.|A pine tree is evergreen.|常綠的；長青的
-conservation|The protection and careful use of natural resources.||Water conservation helps plants in dry places.|保育；保存
-specialized|Changed or suited for a special job.||Cactus spines are specialized leaves.|特化的
-waterproof|Not letting liquid pass through easily.||A waterproof leaf surface can reduce water loss.|防水的
-environmental|Related to surroundings and natural conditions.||Environmental conditions affect plant growth.|環境的
-temperature-resistant|Able to survive difficult temperatures.||Some seeds are temperature-resistant.|耐溫的
-moisture-retention|The ability to keep water.||Thick leaves help with moisture-retention.|保水能力
-ecosystem|All the living and nonliving things interacting in one place.||A pond ecosystem includes fish, plants, water, and sunlight.|生態系
-home|The place where a living thing lives.|A place where someone or something belongs.|A nest is a bird's home.|家；住所
-animals|Living things that usually move and eat food.||Animals need habitats to survive.|動物們
-plants|Living things that usually make food from sunlight.||Plants are important in ecosystems.|植物們
-land|The solid ground on Earth.|To come down onto a surface.|Some animals live on land.|陸地；著陸
-ocean|A very large body of salt water.||Many fish live in the ocean.|海洋
-pond|A small body of still water.||A pond can be a habitat for frogs.|池塘
-together|With each other in one place or group.|At the same time or in connection.|Plants and animals live together in an ecosystem.|一起
-place|A particular area or location.|To put something somewhere.|A desert is a dry place.|地方；放置
-biodiversity|The variety of living things in an area.||Rainforests have high biodiversity.|生物多樣性
-interdependence|The way living things depend on each other.||Bees and flowers show interdependence.|相互依存
-microhabitat|A very small habitat within a larger habitat.||Under a rock can be a microhabitat.|微棲地
-population|A group of the same kind of organism living in one area.|The number of people or organisms in an area.|A frog population lives near the pond.|族群；人口
-community|All the populations living and interacting in an area.|A group of people or organisms living together.|A forest community includes trees, birds, and insects.|群集；社群
-ecological|Related to ecosystems and living relationships.||Ecological balance is important for habitats.|生態的
-sustainability|Using resources in a way that can continue over time.||Sustainability helps protect ecosystems.|永續性
-resources|Useful things that living things need, such as food, water, or space.|Materials or supplies that can be used.|Water and shelter are important resources.|資源
-interaction|An action or effect between two things.|Communication or contact between things.|Pollination is an interaction between bees and flowers.|互動；相互作用
-food chain|A path showing how energy moves from one living thing to another.||A simple food chain starts with a plant.|食物鏈
-food web|A group of connected food chains.||A food web shows many feeding relationships.|食物網
-producer|A living thing that makes its own food, usually using sunlight.|A person or company that makes something.|A green plant is a producer.|生產者
-consumer|A living thing that eats other living things for energy.|A person who buys or uses goods.|A rabbit is a consumer.|消費者
-predator|An animal that hunts other animals.||A fox can be a predator.|掠食者
-prey|An animal that is hunted by another animal.|To hunt or take advantage of something.|A mouse can be prey for an owl.|獵物；捕食
-herbivore|An animal that eats plants.||A deer is a herbivore.|草食動物
-carnivore|An animal that eats other animals.||A lion is a carnivore.|肉食動物
-omnivore|An animal that eats both plants and animals.||A bear is an omnivore.|雜食動物
-flow|To move in a steady way.|A steady movement of liquid, air, or energy.|Energy can flow through a food chain.|流動
-next|Coming after this one.|The following person or thing.|The next animal in the food chain eats the plant.|下一個
-link|A connection between things.|To connect two or more things.|Each animal is a link in a food chain.|連結
-system|A group of parts that work together.|An organized set of rules or processes.|An ecosystem is a living system.|系統
-decomposer|A living thing that breaks down dead plants and animals.||Fungi can be decomposers.|分解者
-trophic|Related to feeding levels in a food chain.||A trophic level shows an organism's feeding role.|營養階層的
-scavenger|An animal that eats dead animals.||A vulture is a scavenger.|食腐動物
-consumption|The act of eating or using something.||Food consumption gives animals energy.|消耗；攝食
-nutritional|Related to food and health.||A nutritional need is something the body requires.|營養的
-interconnected|Connected with each other.||Organisms in a food web are interconnected.|相互連結的
-competition|A struggle for the same resource.|A contest between living things or people.|Animals may have competition for food.|競爭
-energy-transfer|The movement of usable power from one organism to another.||Energy-transfer happens when a rabbit eats grass.|能量轉移
-structure|The way parts are arranged in a living thing or object.|A building or organized form.|A bird's wing structure helps it fly.|構造；結構
-function|The job or purpose of a body part or structure.|To work or operate.|The function of roots is to take in water.|功能；運作
-classification|The act of putting living things into groups.|A system used to organize things.|Classification helps us study organisms.|分類
-adaptation|A trait that helps a living thing survive.|The process of adjusting to a new condition.|Thick fur is an adaptation for cold weather.|適應特徵；適應`;
-const wordBank=new Map(wordBankRaw.trim().split('\n').map(line=>{const p=line.split('|');return[p[0],{en_defs:[p[1],p[2]].filter(Boolean),en_ex:p[3],zh_def:p[4]}]}));
-const vocabularyData=Object.fromEntries(Object.entries(weeklyWordGroups).map(([weekKey,groups])=>[weekKey,Object.entries(groups).flatMap(([category,words])=>words.map(word=>{const d=wordBank.get(word)||{en_defs:[`A life science word related to ${weekMeta[weekKey].toLowerCase()}.`],en_ex:`We use ${word} when we study life science.`,zh_def:'生命科學單字'};return{word,category,en_defs:d.en_defs,en_ex:d.en_ex,zh_def:d.zh_def}}))]));
-const $=id=>document.getElementById(id);const startScreen=$('startScreen'),quizScreen=$('quizScreen'),summaryScreen=$('summaryScreen'),weekSelect=$('weekSelect'),startBtn=$('startBtn'),quizTitle=$('quizTitle'),quizInstruction=$('quizInstruction'),progressText=$('progressText'),listenBtn=$('listenBtn'),answerForm=$('answerForm'),answerInput=$('answerInput'),submitBtn=$('submitBtn'),nextBtn=$('nextBtn'),feedbackBox=$('feedbackBox'),feedbackTitle=$('feedbackTitle'),correctWord=$('correctWord'),preAnswerDefs=$('preAnswerDefs'),enDefs=$('enDefs'),enEx=$('enEx'),zhDef=$('zhDef'),scoreText=$('scoreText'),scoreNote=$('scoreNote'),summaryTableBody=$('summaryTableBody'),homeBtn=$('homeBtn');
-let selectedWeekKey='week1',currentWords=[],currentIndex=0,score=0,results=[];
-function formatWeekLabel(k){return`Week ${k.slice(4)}`}
-function initWeeks(){weekSelect.innerHTML='';Object.keys(vocabularyData).forEach(k=>{const o=document.createElement('option');o.value=k;o.textContent=`${formatWeekLabel(k)}: ${weekMeta[k]}`;weekSelect.appendChild(o)})}
-function show(s){[startScreen,quizScreen,summaryScreen].forEach(x=>x.classList.remove('active'));s.classList.add('active')}
-function shuffle(items){const a=items.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function bestVoice(){if(!window.speechSynthesis)return null;const voices=window.speechSynthesis.getVoices();if(!voices||!voices.length)return null;return voices.find(v=>v.name.toLowerCase().includes('natural')&&v.lang.toLowerCase().includes('en-'))||voices.find(v=>v.name.toLowerCase().includes('google')&&v.lang.toLowerCase().includes('en-us'))||voices.find(v=>v.lang==='en-US'||v.lang==='en-GB')||null}
-function speak(word){if(!window.speechSynthesis||!window.SpeechSynthesisUtterance)return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(word);u.rate=.8;u.pitch=1;u.volume=1;const v=bestVoice();if(v){u.voice=v;u.lang=v.lang||'en-US'}else{u.lang='en-US'}window.speechSynthesis.speak(u)}
-function resetAnswer(){answerInput.value='';answerInput.disabled=false;submitBtn.disabled=false;nextBtn.style.display='none';feedbackBox.className='feedback';feedbackTitle.textContent='';correctWord.textContent='';preAnswerDefs.innerHTML='';enDefs.innerHTML='';enEx.textContent='';zhDef.textContent=''}
-function addDefs(list,defs){list.innerHTML='';defs.forEach(def=>{const li=document.createElement('li');li.textContent=def;list.appendChild(li)})}
-function renderWord(){const item=currentWords[currentIndex];quizTitle.textContent=formatWeekLabel(selectedWeekKey);quizInstruction.textContent=weekMeta[selectedWeekKey];progressText.textContent=`Word: ${currentIndex+1} / ${currentWords.length}`;resetAnswer();addDefs(preAnswerDefs,item.en_defs);setTimeout(()=>{speak(item.word);answerInput.focus()},180)}
-function startQuiz(){selectedWeekKey=weekSelect.value;currentWords=shuffle(vocabularyData[selectedWeekKey]||[]);currentIndex=0;score=0;results=[];if(!currentWords.length){alert('No words found for this week.');return}show(quizScreen);renderWord()}
-function normalize(v){let out=v.trim().toLowerCase();['-','‐','‑','‒','–','—'].forEach(h=>{out=out.split(h).join(' ')});return out.split(' ').filter(Boolean).join(' ')}
-function submitAnswer(e){e.preventDefault();if(answerInput.disabled)return;const item=currentWords[currentIndex];const userAnswer=answerInput.value.trim();const isCorrect=normalize(userAnswer)===normalize(item.word);if(isCorrect)score++;results.push({word:item.word,category:item.category,userAnswer,isCorrect});answerInput.disabled=true;submitBtn.disabled=true;nextBtn.style.display='inline-flex';feedbackBox.className=`feedback visible ${isCorrect?'correct':'wrong'}`;feedbackTitle.textContent=isCorrect?'Correct!':'Try Again Next Time';correctWord.textContent=`${item.category} Word — Correct spelling: ${item.word}`;addDefs(enDefs,item.en_defs);enEx.textContent=item.en_ex;zhDef.textContent=item.zh_def;nextBtn.focus()}
-function nextWord(){currentIndex++;if(currentIndex>=currentWords.length){renderSummary();show(summaryScreen);return}renderWord()}
-function renderSummary(){const total=currentWords.length;const percent=total?Math.round(score/total*100):0;scoreText.textContent=`Score: ${score} / ${total} (${percent}%)`;scoreNote.textContent=percent===100?'Perfect work!':percent>=80?'Great job!':percent>=60?'Good practice. Keep going!':'Keep practicing. You can improve!';summaryTableBody.innerHTML='';results.forEach(r=>{const tr=document.createElement('tr');const w=document.createElement('td');w.textContent=r.word;const c=document.createElement('td');const b=document.createElement('span');b.className='badge';b.textContent=r.category;c.appendChild(b);const a=document.createElement('td');a.textContent=r.userAnswer||'No answer';if(!r.isCorrect)a.classList.add('wrong-answer');const res=document.createElement('td');res.className='result';res.textContent=r.isCorrect?'✔️':'❌';tr.append(w,c,a,res);summaryTableBody.appendChild(tr)})}
-if(window.speechSynthesis){window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices()}
-initWeeks();startBtn.addEventListener('click',startQuiz);listenBtn.addEventListener('click',()=>{const item=currentWords[currentIndex];if(item){speak(item.word);if(!answerInput.disabled)answerInput.focus()}});answerForm.addEventListener('submit',submitAnswer);nextBtn.addEventListener('click',nextWord);homeBtn.addEventListener('click',()=>location.reload());
+const STABLE_SOURCE='https://raw.githubusercontent.com/kevin58581314/life-science-spelling-quiz/a84ff34c26a6503e6ebddd03792440a099b7c57d/index.html';
+fetch(STABLE_SOURCE)
+  .then(response=>{
+    if(!response.ok) throw new Error('Unable to load quiz source: '+response.status);
+    return response.text();
+  })
+  .then(html=>{
+    html=html.replace('</style>',`\n.week-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:24px}.week-btn{width:100%;min-height:86px;text-align:left;background:rgba(37,99,235,.92);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:6px}.week-btn small{display:block;color:#dbeafe;font-size:.82rem;font-weight:700;line-height:1.25}.reading-status{margin-top:12px;color:#bfdbfe;font-weight:800}.wrong-row{background:rgba(239,68,68,.12)}.wrong-row td{border-bottom-color:rgba(239,68,68,.22)}.wrong-answer{color:#fecaca;text-decoration:none!important;font-weight:900}.summary-meta{margin:12px 0 0;color:#cbd5e1;font-size:1rem}.print-note{color:#94a3b8;font-size:.96rem;margin:0 0 18px}@media print{body{background:white!important;color:#111827!important;padding:0}.app{box-shadow:none!important;border:0!important;background:white!important;color:#111827!important}.top{background:white!important;color:#111827!important}.content{padding:18px!important}.screen{display:none!important}#summaryScreen{display:block!important}.button-row,.no-print{display:none!important}table{background:white!important;color:#111827!important}th{background:#e5e7eb!important;color:#111827!important}td{color:#111827!important}.score,.table-wrap{border-color:#cbd5e1!important;background:white!important}.score-note,.subtitle,.summary-meta{color:#334155!important}.badge{border:1px solid #93c5fd!important;color:#1e3a8a!important;background:#eff6ff!important}.wrong-row{background:#fee2e2!important}.wrong-answer{color:#991b1b!important}}\n</style>`);
+
+    html=html.replace(/<section id="startScreen" class="screen active">[\s\S]*?<\/section>\n<section id="quizScreen"/,`<section id="startScreen" class="screen active"><h2>Choose a Week</h2><p class="subtitle">Tap a week to start. Core Words and Challenge Words will be mixed in a random order.</p><div id="weekGrid" class="week-grid"></div></section>\n<section id="quizScreen"`);
+
+    html=html.replace('<button id="submitBtn" type="submit">Submit</button><button id="nextBtn" type="button" class="success" style="display:none">Next Word</button>','<button id="submitBtn" type="submit">Submit</button><button id="skipReadBtn" type="button" class="secondary" style="display:none">Skip Reading</button><button id="nextBtn" type="button" class="success" style="display:none" disabled>Next Word</button>');
+
+    html=html.replace('<div id="feedbackBox" class="feedback"><p id="feedbackTitle" class="feedback-title"></p><span id="correctWord" class="chip"></span><div class="grid">','<div id="feedbackBox" class="feedback"><p id="feedbackTitle" class="feedback-title"></p><span id="correctWord" class="chip"></span><p id="readingStatus" class="reading-status" style="display:none">Reading the meaning and example...</p><div class="grid">');
+
+    html=html.replace(/<section id="summaryScreen" class="screen">[\s\S]*?<\/section>\n<\/section><\/main>/,`<section id="summaryScreen" class="screen"><h2>Quiz Summary</h2><p class="subtitle">Review your answers below.</p><div class="score"><p class="score-num" id="scoreText">Score: 0 / 0 (0%)</p><p class="score-note" id="scoreNote">Great practice!</p><p class="summary-meta" id="resultDate"></p></div><p class="print-note">You can save this result by taking a screenshot, or use Print / Save as PDF.</p><div class="table-wrap"><table><thead><tr><th>The Word</th><th>Category</th><th>Your Answer</th><th>Result</th></tr></thead><tbody id="summaryTableBody"></tbody></table></div><div class="button-row no-print"><button id="printBtn" type="button">Print / Save as PDF</button><button id="homeBtn" type="button" class="secondary">Back to Home</button></div></section>\n</section></main>`);
+
+    html=html.replace('const $=id=>document.getElementById(id);const startScreen=$(\'startScreen\'),quizScreen=$(\'quizScreen\'),summaryScreen=$(\'summaryScreen\'),weekSelect=$(\'weekSelect\'),startBtn=$(\'startBtn\'),quizTitle=$(\'quizTitle\'),quizInstruction=$(\'quizInstruction\'),progressText=$(\'progressText\'),listenBtn=$(\'listenBtn\'),answerForm=$(\'answerForm\'),answerInput=$(\'answerInput\'),submitBtn=$(\'submitBtn\'),nextBtn=$(\'nextBtn\'),feedbackBox=$(\'feedbackBox\'),feedbackTitle=$(\'feedbackTitle\'),correctWord=$(\'correctWord\'),preAnswerDefs=$(\'preAnswerDefs\'),enDefs=$(\'enDefs\'),enEx=$(\'enEx\'),zhDef=$(\'zhDef\'),scoreText=$(\'scoreText\'),scoreNote=$(\'scoreNote\'),summaryTableBody=$(\'summaryTableBody\'),homeBtn=$(\'homeBtn\');',`const $=id=>document.getElementById(id);const startScreen=$('startScreen'),quizScreen=$('quizScreen'),summaryScreen=$('summaryScreen'),weekGrid=$('weekGrid'),quizTitle=$('quizTitle'),quizInstruction=$('quizInstruction'),progressText=$('progressText'),listenBtn=$('listenBtn'),answerForm=$('answerForm'),answerInput=$('answerInput'),submitBtn=$('submitBtn'),skipReadBtn=$('skipReadBtn'),nextBtn=$('nextBtn'),feedbackBox=$('feedbackBox'),feedbackTitle=$('feedbackTitle'),correctWord=$('correctWord'),readingStatus=$('readingStatus'),preAnswerDefs=$('preAnswerDefs'),enDefs=$('enDefs'),enEx=$('enEx'),zhDef=$('zhDef'),scoreText=$('scoreText'),scoreNote=$('scoreNote'),resultDate=$('resultDate'),summaryTableBody=$('summaryTableBody'),printBtn=$('printBtn'),homeBtn=$('homeBtn');`);
+
+    html=html.replace(/function initWeeks\(\)\{[\s\S]*?\}\nfunction show/,`function initWeeks(){weekGrid.innerHTML='';Object.keys(vocabularyData).forEach(k=>{const btn=document.createElement('button');btn.type='button';btn.className='week-btn';btn.innerHTML='<span>'+formatWeekLabel(k)+'</span><small>'+weekMeta[k]+'</small>';btn.addEventListener('click',()=>startQuiz(k));weekGrid.appendChild(btn)})}\nfunction show`);
+
+    html=html.replace(/function bestVoice\(\)\{[\s\S]*?\}\nfunction speak/,`function bestVoice(){if(!window.speechSynthesis)return null;const voices=window.speechSynthesis.getVoices();if(!voices||!voices.length)return null;const preferred=['Google US English','Microsoft Aria','Microsoft Jenny','Microsoft Ava','Microsoft Guy','Samantha','Karen','Daniel','Serena'];for(const name of preferred){const v=voices.find(x=>x.name.toLowerCase().includes(name.toLowerCase())&&x.lang.toLowerCase().includes('en'));if(v)return v}return voices.find(v=>v.name.toLowerCase().includes('natural')&&v.lang.toLowerCase().includes('en-'))||voices.find(v=>v.name.toLowerCase().includes('google')&&v.lang.toLowerCase().includes('en-us'))||voices.find(v=>v.lang==='en-US'||v.lang==='en-GB')||voices.find(v=>v.lang&&v.lang.toLowerCase().startsWith('en'))||null}\nfunction speak`);
+
+    html=html.replace(/function speak\(word\)\{[\s\S]*?\}\nfunction resetAnswer\(\)\{[\s\S]*?\}\nfunction addDefs/,`function speak(word){speakText(word,{rate:.8})}\nfunction speakText(text,{rate=.84,onend=null}={}){if(!window.speechSynthesis||!window.SpeechSynthesisUtterance){if(onend)onend();return}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.rate=rate;u.pitch=1;u.volume=1;const v=bestVoice();if(v){u.voice=v;u.lang=v.lang||'en-US'}else{u.lang='en-US'}let done=false;u.onend=()=>{if(done)return;done=true;if(onend)onend()};u.onerror=()=>{if(done)return;done=true;if(onend)onend()};window.speechSynthesis.speak(u)}\nfunction buildReadingText(item){const meaning=item.en_defs&&item.en_defs.length?item.en_defs[0]:'';return 'The word is '+item.word+'. '+item.word+' means: '+meaning+'. Example: '+item.en_ex}\nfunction finishReading(){if(readingStatus)readingStatus.style.display='none';if(skipReadBtn)skipReadBtn.style.display='none';nextBtn.disabled=false;nextBtn.focus()}\nfunction readAfterAnswer(item){nextBtn.disabled=true;if(skipReadBtn)skipReadBtn.style.display='inline-flex';if(readingStatus)readingStatus.style.display='block';speakText(buildReadingText(item),{rate:.82,onend:finishReading})}\nfunction skipReading(){if(window.speechSynthesis)window.speechSynthesis.cancel();finishReading()}\nfunction resetAnswer(){answerInput.value='';answerInput.disabled=false;submitBtn.disabled=false;if(skipReadBtn)skipReadBtn.style.display='none';nextBtn.style.display='none';nextBtn.disabled=true;if(readingStatus)readingStatus.style.display='none';feedbackBox.className='feedback';feedbackTitle.textContent='';correctWord.textContent='';preAnswerDefs.innerHTML='';enDefs.innerHTML='';enEx.textContent='';zhDef.textContent=''}\nfunction addDefs`);
+
+    html=html.replace(/function startQuiz\(\)\{[\s\S]*?\}\nfunction normalize/,`function startQuiz(weekKey){selectedWeekKey=weekKey;currentWords=shuffle(vocabularyData[selectedWeekKey]||[]);currentIndex=0;score=0;results=[];if(!currentWords.length){alert('No words found for this week.');return}show(quizScreen);renderWord()}\nfunction normalize`);
+
+    html=html.replace(/function submitAnswer\(e\)\{[\s\S]*?\}\nfunction nextWord/,`function submitAnswer(e){e.preventDefault();if(answerInput.disabled)return;const item=currentWords[currentIndex];const userAnswer=answerInput.value.trim();const isCorrect=normalize(userAnswer)===normalize(item.word);if(isCorrect)score++;results.push({word:item.word,category:item.category,userAnswer,isCorrect});answerInput.disabled=true;submitBtn.disabled=true;nextBtn.style.display='inline-flex';nextBtn.disabled=true;feedbackBox.className='feedback visible '+(isCorrect?'correct':'wrong');feedbackTitle.textContent=isCorrect?'Correct!':'Try Again Next Time';correctWord.textContent=item.category+' Word — Correct spelling: '+item.word;addDefs(enDefs,item.en_defs);enEx.textContent=item.en_ex;zhDef.textContent=item.zh_def;readAfterAnswer(item)}\nfunction nextWord`);
+
+    html=html.replace(/function renderSummary\(\)\{[\s\S]*?\}\nif\(window\.speechSynthesis\)/,`function renderSummary(){const total=currentWords.length;const percent=total?Math.round(score/total*100):0;const now=new Date();scoreText.textContent='Score: '+score+' / '+total+' ('+percent+'%)';scoreNote.textContent=percent===100?'Perfect work!':percent>=80?'Great job!':percent>=60?'Good practice. Keep going!':'Keep practicing. You can improve!';if(resultDate)resultDate.textContent='Completed: '+now.toLocaleString('en-US',{year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});summaryTableBody.innerHTML='';results.forEach(r=>{const tr=document.createElement('tr');if(!r.isCorrect)tr.classList.add('wrong-row');const w=document.createElement('td');w.textContent=r.word;const c=document.createElement('td');const b=document.createElement('span');b.className='badge';b.textContent=r.category;c.appendChild(b);const a=document.createElement('td');a.textContent=r.userAnswer||'No answer';if(!r.isCorrect)a.classList.add('wrong-answer');const res=document.createElement('td');res.className='result';res.textContent=r.isCorrect?'✔️':'❌';tr.append(w,c,a,res);summaryTableBody.appendChild(tr)})}\nif(window.speechSynthesis)`);
+
+    html=html.replace("initWeeks();startBtn.addEventListener('click',startQuiz);listenBtn.addEventListener('click',()=>{const item=currentWords[currentIndex];if(item){speak(item.word);if(!answerInput.disabled)answerInput.focus()}});answerForm.addEventListener('submit',submitAnswer);nextBtn.addEventListener('click',nextWord);homeBtn.addEventListener('click',()=>location.reload());",`initWeeks();listenBtn.addEventListener('click',()=>{const item=currentWords[currentIndex];if(item){speak(item.word);if(!answerInput.disabled)answerInput.focus()}});answerForm.addEventListener('submit',submitAnswer);if(skipReadBtn)skipReadBtn.addEventListener('click',skipReading);nextBtn.addEventListener('click',nextWord);if(printBtn)printBtn.addEventListener('click',()=>window.print());homeBtn.addEventListener('click',()=>location.reload());`);
+
+    document.open();
+    document.write(html);
+    document.close();
+  })
+  .catch(error=>{
+    document.getElementById('loader').innerHTML='<h1>Unable to load quiz</h1><div class="err">'+String(error.message||error)+'</div><p>Please reload the page or open it in Chrome / Safari.</p>';
+  });
 </script>
 </body>
 </html>
